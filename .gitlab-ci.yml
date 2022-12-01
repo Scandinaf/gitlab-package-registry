@@ -1,0 +1,8 @@
+include:
+  - project: 'onair-cortex/ci/ci-templates'
+    ref: main
+    file: 'generator.yaml'
+
+variables:
+  SPECIFIC_JOBS: "jobs/version/version.yaml jobs/build/build.yaml"
+  SBT_COMMANDS: "scalafmtCheckAll test pushRemoteCache"
