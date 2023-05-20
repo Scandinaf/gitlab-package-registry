@@ -29,7 +29,7 @@ object GitLabPackageRegistryPlugin extends AutoPlugin {
     Seq(
       resolvers += repository,
       csrConfiguration ~= (_.addRepositoryAuthentication(repository.name, authentication)),
-      updateClassifiers / csrConfiguration := csrConfiguration.value,
+      updateClassifiers / csrConfiguration ~= (_.addRepositoryAuthentication(repository.name, authentication)),
       publishMavenStyle := true,
       aether.AetherKeys.aetherCustomHttpHeaders := Map(CustomAuthHeader -> token)
     )
